@@ -33,7 +33,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "qbittorrent",  NULL,   NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -60,7 +60,11 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
-
+#define MAIL "gmail-desktop"
+#define VEDITOR "dav"
+#define BROWSER "brave"
+#define TORRENT "qbittorrent" 
+#define SCREENSHOT "sc"
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
@@ -68,28 +72,28 @@ static const char *termcmd[]  = { "st", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,             			XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	// ODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	//{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	//{ MODKEY,                     XK_i,      incnmaster,     {.i = +1 } },
+	//{ MODKEY,                     XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,             			XK_q,      killclient,     {0} },
-	// { MEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,             		XK_q,      killclient,     {0} },
+	// { MODKEY,                    XK_t,      setlayout,      {.v = &layouts[0]} },
 	// { MODK                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	// { MODKEY,                    XK_m,      setlayout,      {.v = &layouts[2]} },
 	// { MODKEY,                    XK_space,  setlayout,      {0} },
 	// { MODKEY|ShiftM,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ ALT,             				XK_0,      tag,            {.ui = ~0 } },
+	{ ALT,             		XK_0,      tag,            {.ui = ~0 } },
 	// { MODKEY,                    XK_comma,  focusmon,       {.i = -1 } },
 	// { MODKEY,                    XK_period, focusmon,       {.i = +1 } },
 	// { MODKEY|ShiftMask,          XK_comma,  tagmon,         {.i = -1 } },
-	// { MODKEY|ShiftMask            XK_period, tagmon,         {.i = +1 } },
+	// { MODKEY|ShiftMask           XK_period, tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -99,16 +103,16 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	//{ ALT,             			ESC,      	quit,           {0} },
-	{ MODKEY,						XK_w,		spawn,		{.v = (const char*[]){ BROWSER, NULL } } },
-	{ MODKEY,						XK_m,		spawn,		{.v = (const char*[]){ MAIL, NULL } } },
-	{ MODKEY,						XK_d,		spawn,		{.v = (const char*[]){ VEDITOR, NULL } } },
-	{ MODKEY,						XK_t,		spawn,		{.v = (const char*[]){ TORRENT, NULL } } },
-	{ ALT,                       	XK_s,  		spawn,          {.v = (const char*[]){ SCREENSHOT, NULL } } },
-	{ MODKEY,						XK_minus,	spawn,		SHCMD("pamixer -d 1")},
-	{ MODKEY|ShiftMask,				XK_minus,	spawn,		SHCMD("pamixer -d 3")},
-	{ MODKEY,						XK_equal,	spawn,		SHCMD("pamixer -i 1")},
-	{ MODKEY|ShiftMask,				XK_equal,	spawn,		SHCMD("pamixer -i 3")},
+	//{ ALT,             		ESC,     	quit,      {0} },
+	{ MODKEY,			XK_w,		spawn,	{.v = (const char*[]){ BROWSER, NULL } } },
+	{ MODKEY,			XK_m,		spawn,	{.v = (const char*[]){ MAIL, NULL } } },
+	{ MODKEY,			XK_d,		spawn,	{.v = (const char*[]){ VEDITOR, NULL } } },
+	{ MODKEY,			XK_t,		spawn,	{.v = (const char*[]){ TORRENT, NULL } } },
+	{ ALT,                       	XK_s,  		spawn,	{.v = (const char*[]){ SCREENSHOT, NULL } } },
+	{ MODKEY,			XK_minus,	spawn,	SHCMD("pamixer -d 1")},
+	{ MODKEY|ShiftMask,		XK_minus,	spawn,	SHCMD("pamixer -d 3")},
+	{ MODKEY,			XK_equal,	spawn,	SHCMD("pamixer -i 1")},
+	{ MODKEY|ShiftMask,		XK_equal,	spawn,	SHCMD("pamixer -i 3")},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
