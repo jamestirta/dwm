@@ -33,9 +33,10 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            0,           -1 },
-	{ "qbittorrent",  NULL,   NULL,       1 << 8,       0,           -1 },
+	/* class			instance title  tags mask     isfloating monitor */
+	{ "qBittorrent",		NULL,	NULL,	1 << 8,       0,	-1 },
+	{ "Gwe",			NULL,	NULL,	1 << 7,       0,	-1 },
+	{ "Microsoft Teams - Preview",	NULL,	NULL,	1 << 7,       0,	-1 },
 };
 
 /* layout(s) */
