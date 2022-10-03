@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 4;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -16,7 +16,8 @@ static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#770000";
+static char selbordercolor[]        = "#ffffff"; // white
+/* static char selbordercolor[]        = "#iff0000"; // red */
 static char selbgcolor[]            = "#005577";
 static const char *colors[][3]      = {
 		/*               fg         bg         border   */
@@ -32,7 +33,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Gimp",     NULL,       NULL,       0,            0,           -1 },
 	{ "qbittorrent",  NULL,   NULL,       1 << 8,       0,           -1 },
 };
 
@@ -45,7 +46,7 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	/* { "><>",      NULL },    /1* no layout function means floating behavior *1/ */
 	{ "[M]",      monocle },
 };
 
@@ -59,7 +60,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#define SHCMD(cmd) { .v = (const char*[]){ "/usr/bin/zsh", "-c", cmd, NULL } }
 #define MAIL "gmail-desktop"
 #define VEDITOR "dav"
 #define BROWSER "brave"
@@ -73,38 +74,29 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY,                       XK_f,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0}},
-	//{ MODKEY,                     XK_i,      incnmaster,     {.i = +1 } },
-	//{ MODKEY,                     XK_d,      incnmaster,     {.i = -1 } },
+	/* { MODKEY,                     XK_i,      incnmaster,     {.i = +1 } }, */
+	/* { MODKEY,                     XK_d,      incnmaster,     {.i = -1 } }, */
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,             		XK_q,      killclient,     {0} },
-	// { MODKEY,                    XK_t,      setlayout,      {.v = &layouts[0]} },
-	// { MODK                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	// { MODKEY,                    XK_m,      setlayout,      {.v = &layouts[2]} },
-	// { MODKEY,                    XK_space,  setlayout,      {0} },
-	// { MODKEY|ShiftM,             XK_space,  togglefloating, {0} },
+	/* { MODKEY,                    XK_t,      setlayout,      {.v = &layouts[0]} }, */
+	/* { MODK                       XK_f,      setlayout,      {.v = &layouts[1]} }, */
+	/* { MODKEY,                    XK_m,      setlayout,      {.v = &layouts[2]} }, */
+	/* { MODKEY,                    XK_space,  setlayout,      {0} }, */
+	/* { MODKEY|ShiftM,             XK_space,  togglefloating, {0} }, */
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ ALT,             		XK_0,      tag,            {.ui = ~0 } },
-	// { MODKEY,                    XK_comma,  focusmon,       {.i = -1 } },
-	// { MODKEY,                    XK_period, focusmon,       {.i = +1 } },
-	// { MODKEY|ShiftMask,          XK_comma,  tagmon,         {.i = -1 } },
-	// { MODKEY|ShiftMask           XK_period, tagmon,         {.i = +1 } },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
-	//{ ALT,             		ESC,     	quit,      {0} },
+	/* { MODKEY,                    XK_comma,  focusmon,       {.i = -1 } }, */
+	/* { MODKEY,                    XK_period, focusmon,       {.i = +1 } }, */
+	/* { MODKEY|ShiftMask,          XK_comma,  tagmon,         {.i = -1 } }, */
+	/* { MODKEY|ShiftMask           XK_period, tagmon,         {.i = +1 } }, */
+	{ ALT,             		XK_equal,     	quit,      {0} }, 
 	{ MODKEY,			XK_w,		spawn,	{.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY,			XK_m,		spawn,	{.v = (const char*[]){ MAIL, NULL } } },
 	{ MODKEY,			XK_d,		spawn,	{.v = (const char*[]){ VEDITOR, NULL } } },
@@ -123,7 +115,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
 /* button definitions */
