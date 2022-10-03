@@ -35,6 +35,7 @@ static const Rule rules[] = {
 	 */
 	/* class			instance title  tags mask     isfloating monitor */
 	{ "qBittorrent",		NULL,	NULL,	1 << 8,       0,	-1 },
+	{ "resolve",			NULL,	NULL,	1 << 1,       0,	-1 },
 	{ "Gwe",			NULL,	NULL,	1 << 7,       0,	-1 },
 	{ "Microsoft Teams - Preview",	NULL,	NULL,	1 << 7,       0,	-1 },
 };
