@@ -38,6 +38,7 @@ static const Rule rules[] = {
 	{ "resolve",			NULL,	NULL,	1 << 1,       0,	-1 },
 	{ "Gwe",			NULL,	NULL,	1 << 7,       0,	-1 },
 	{ "Microsoft Teams - Preview",	NULL,	NULL,	1 << 7,       0,	-1 },
+	{ "obs",			NULL,	NULL,	1 << 1,       0,	-1 },
 };
 
 /* layout(s) */
