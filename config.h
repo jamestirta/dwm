@@ -18,7 +18,7 @@ static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
 static char selbordercolor[]        = "#ffffff"; // white
 /* static char selbordercolor[]        = "#iff0000"; // red */
-static char selbgcolor[]            = "#005577";
+static char selbgcolor[]            = "#004763";
 static const char *colors[][3]      = {
 		/*               fg         bg         border   */
 		[SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -67,7 +67,7 @@ static const Layout layouts[] = {
 #define TORRENT "qbittorrent" 
 #define SCREENSHOT "sc"
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", selbordercolor, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
