@@ -102,11 +102,11 @@ static const Key keys[] = {
 	{ MODKEY,			XK_d,		spawn,	{.v = (const char*[]){ VEDITOR, NULL } } },
 	{ MODKEY,			XK_t,		spawn,	{.v = (const char*[]){ TORRENT, NULL } } },
 	{ ALT,                       	XK_s,  		spawn,	{.v = (const char*[]){ SCREENSHOT, NULL } } },
-	{ MODKEY,			XK_minus,	spawn,	SHCMD("wpctl set-volume 47 1%-")},
-	{ ALT,				XK_minus,	spawn,	SHCMD("wpctl set-volume 31 1%-")},
-	{ MODKEY,			XK_equal,	spawn,	SHCMD("wpctl set-volume 47 1%+")},
-	{ ALT,				XK_equal,	spawn,	SHCMD("wpctl set-volume 31 1%+")},
-	{ ALT,				XK_m,		spawn,	SHCMD("wpctl set-mute 47")},
+	/* { MODKEY,			XK_minus,	spawn,	SHCMD("wpctl set-volume 47 1%-")}, */
+	/* { ALT,				XK_minus,	spawn,	SHCMD("wpctl set-volume 31 1%-")}, */
+	/* { MODKEY,			XK_equal,	spawn,	SHCMD("wpctl set-volume 47 1%+")}, */
+	/* { ALT,				XK_equal,	spawn,	SHCMD("wpctl set-volume 31 1%+")}, */
+	/* { ALT,				XK_m,		spawn,	SHCMD("wpctl set-mute 47")}, */
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
