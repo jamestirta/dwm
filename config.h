@@ -18,6 +18,7 @@ static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
 /* static char selbordercolor[]        = "#00ffff"; // cyan */
 static char selbordercolor[]        = "#ffffff"; // white
+/* static char selbordercolor[]        = "#5cf9cf"; // white */
 /* static char selbordercolor[]        = "#iff0000"; // red */
 static char selbgcolor[]            = "#004763";
 static const char *colors[][3]      = {
@@ -38,6 +39,8 @@ static const Rule rules[] = {
 	{ "resolve",			NULL,	NULL,	1 << 1,       0,	-1 },
 	{ "Gwe",			NULL,	NULL,	1 << 7,       0,	-1 },
 	{ "Microsoft Teams - Preview",	NULL,	NULL,	1 << 7,       0,	-1 },
+	{ "jamesdsp",	NULL,	NULL,	1 << 7,       0,	-1 },
+	{ "teams-for-linux",	NULL,	NULL,	1 << 7,       0,	-1 },
 	{ "obs",			NULL,	NULL,	1 << 1,       0,	-1 },
 };
 
@@ -79,6 +82,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_f,      togglebar,      {0} },
+	{ MODKEY,                       XK_minus,  togglebar,      {0} },
+	/* { MODKEY,                       XK_equal,  togglebar,      {0} }, */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0}},
@@ -89,9 +94,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,             		XK_q,      killclient,     {0} },
-	/* { MODKEY,                    XK_t,      setlayout,      {.v = &layouts[0]} }, */
+	{ MODKEY,                       XK_minus,  setlayout,      {.v = &layouts[0]} },
 	/* { MODK                       XK_f,      setlayout,      {.v = &layouts[1]} }, */
-	/* { MODKEY,                    XK_m,      setlayout,      {.v = &layouts[2]} }, */
+	/* { MODKEY,                       XK_equal,  setlayout,      {.v = &layouts[2]} }, */
 	/* { MODKEY,                    XK_space,  setlayout,      {0} }, */
 	/* { MODKEY|ShiftM,             XK_space,  togglefloating, {0} }, */
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -138,4 +143,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
