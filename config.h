@@ -3,6 +3,7 @@
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating = 1;       /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = {"monospace:size=10","NotoColorEmoji:pixelsize=10:antialias=true:autohint=true"};
@@ -34,14 +35,17 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class			instance title  tags mask     isfloating monitor */
-	{ "qBittorrent",		NULL,	NULL,	1 << 8,       0,	-1 },
-	{ "resolve",			NULL,	NULL,	1 << 1,       0,	-1 },
-	{ "Gwe",			NULL,	NULL,	1 << 7,       0,	-1 },
-	{ "Microsoft Teams - Preview",	NULL,	NULL,	1 << 7,       0,	-1 },
-	{ "jamesdsp",	NULL,	NULL,	1 << 7,       0,	-1 },
-	{ "teams-for-linux",	NULL,	NULL,	1 << 7,       0,	-1 },
-	{ "obs",			NULL,	NULL,	1 << 1,       0,	-1 },
+	/* class			instance title  tags mask	isfloating	isterminal	noswallow 	monitor */
+	{ "st-256color",		NULL,	NULL,	0,       	0,		1,		0,		-1 },
+	{ "qBittorrent",		NULL,	NULL,	1 << 8,       	0,		0,		0,		-1 },
+	{ "resolve",			NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
+	{ "Gwe",			NULL,	NULL,	1 << 7,       	0,		0,		0,		-1 },
+	{ "Nvidia-settings",		NULL,	NULL,	1 << 6,       	0,		0,		0,		-1 },
+	{ "nvidia-settings",		NULL,	NULL,	1 << 6,       	0,		0,		0,		-1 },
+	{ "Microsoft Teams - Preview",	NULL,	NULL,	1 << 7,       	0,		0,		0,		-1 },
+	{ "jamesdsp",			NULL,	NULL,	1 << 7,       	0,		0,		0,		-1 },
+	{ "teams-for-linux",		NULL,	NULL,	1 << 7,       	0,		0,		0,		-1 },
+	{ "obs",			NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
 };
 
 /* layout(s) */
