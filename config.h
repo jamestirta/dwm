@@ -37,6 +37,9 @@ static const Rule rules[] = {
 	 */
 	/* class			instance title  tags mask	isfloating	isterminal	noswallow 	monitor */
 	{ "st-256color",		NULL,	NULL,	0,       	0,		1,		0,		-1 },
+	{ NULL,				"lf",	NULL,	0,       	0,		1,		0,		-1 },
+	{ NULL,				NULL,	"lf",	0,       	0,		1,		0,		-1 },
+	{ "lf",				NULL,	NULL,	0,       	0,		1,		0,		-1 },
 	{ "qBittorrent",		NULL,	NULL,	1 << 8,       	0,		0,		0,		-1 },
 	{ "resolve",			NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
 	{ "Gwe",			NULL,	NULL,	1 << 7,       	0,		0,		0,		-1 },
@@ -86,7 +89,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_f,      togglebar,      {0} },
-	{ MODKEY,                       XK_minus,  togglebar,      {0} },
+	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	/* { MODKEY,                       XK_equal,  togglebar,      {0} }, */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -112,7 +115,7 @@ static const Key keys[] = {
 	/* { ALT,             		XK_equal,  quit,      {0} }, */ 
 	{ MODKEY,			XK_w,		spawn,	{.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY,			XK_m,		spawn,	{.v = (const char*[]){ MAIL, NULL } } },
-	{ MODKEY,			XK_d,		spawn,	{.v = (const char*[]){ VEDITOR, NULL } } },
+	/* { MODKEY,			XK_d,		spawn,	{.v = (const char*[]){ VEDITOR, NULL } } }, */
 	{ MODKEY,			XK_t,		spawn,	{.v = (const char*[]){ TORRENT, NULL } } },
 	{ ALT,                       	XK_s,  		spawn,	{.v = (const char*[]){ SCREENSHOT, NULL } } },
 	{ MODKEY,			XK_minus,	spawn,	SHCMD("pamixer -d 1")},
