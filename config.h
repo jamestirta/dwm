@@ -42,6 +42,7 @@ static const Rule rules[] = {
 	{ "lf",				NULL,	NULL,	0,       	0,		1,		0,		-1 },
 	{ "qBittorrent",		NULL,	NULL,	1 << 8,       	0,		0,		0,		-1 },
 	{ "resolve",			NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
+	{ "discord",			NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
 	{ "Gwe",			NULL,	NULL,	1 << 7,       	0,		0,		0,		-1 },
 	{ "Nvidia-settings",		NULL,	NULL,	1 << 6,       	0,		0,		0,		-1 },
 	{ "nvidia-settings",		NULL,	NULL,	1 << 6,       	0,		0,		0,		-1 },
@@ -122,7 +123,7 @@ static const Key keys[] = {
 	{ ALT,				XK_minus,	spawn,	SHCMD("pamixer -d 2")},
 	{ MODKEY,			XK_equal,	spawn,	SHCMD("pamixer -i 1")},
 	{ ALT,				XK_equal,	spawn,	SHCMD("pamixer -i 2")},
-	/* { ALT,				XK_m,		spawn,	SHCMD("pamixer")}, */
+	{ ALT,				XK_m,		spawn,	SHCMD("pamixer -t")},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
