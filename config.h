@@ -88,42 +88,42 @@ static const char *termcmd[]  = { "st", NULL };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,             		      XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_f,      togglebar,      {0} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	/* { MODKEY,                       XK_equal,  togglebar,      {0} }, */
+	/* { MODKEY,                    XK_equal,  togglebar,      {0} }, */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_f,      togglefullscr,  {0}},
-	/* { MODKEY,                     XK_i,      incnmaster,     {.i = +1 } }, */
-	/* { MODKEY,                     XK_d,      incnmaster,     {.i = -1 } }, */
+	/* { MODKEY,                    XK_i,      incnmaster,     {.i = +1 } }, */
+	/* { MODKEY,                    XK_d,      incnmaster,     {.i = -1 } }, */
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_space,  zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,             		XK_q,      killclient,     {0} },
+	{ MODKEY,                   		XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_space,  setlayout,      {.v = &layouts[0]} },
 	/* { MODK                       XK_f,      setlayout,      {.v = &layouts[1]} }, */
-	/* { MODKEY,                       XK_equal,  setlayout,      {.v = &layouts[2]} }, */
+	/* { MODKEY,                    XK_equal,  setlayout,      {.v = &layouts[2]} }, */
 	/* { MODKEY,                    XK_space,  setlayout,      {0} }, */
 	/* { MODKEY|ShiftM,             XK_space,  togglefloating, {0} }, */
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ ALT,             		XK_0,      tag,            {.ui = ~0 } },
+	{ ALT,             		          XK_0,      tag,            {.ui = ~0 } },
 	/* { MODKEY,                    XK_comma,  focusmon,       {.i = -1 } }, */
 	/* { MODKEY,                    XK_period, focusmon,       {.i = +1 } }, */
 	/* { MODKEY|ShiftMask,          XK_comma,  tagmon,         {.i = -1 } }, */
 	/* { MODKEY|ShiftMask           XK_period, tagmon,         {.i = +1 } }, */
-	/* { ALT,             		XK_equal,  quit,      {0} }, */ 
-	{ MODKEY,			XK_w,		spawn,	{.v = (const char*[]){ BROWSER, NULL } } },
-	{ MODKEY,			XK_m,		spawn,	{.v = (const char*[]){ MAIL, NULL } } },
-	/* { MODKEY,			XK_d,		spawn,	{.v = (const char*[]){ VEDITOR, NULL } } }, */
-	{ MODKEY,			XK_t,		spawn,	{.v = (const char*[]){ TORRENT, NULL } } },
-	{ ALT,                       	XK_s,  		spawn,	{.v = (const char*[]){ SCREENSHOT, NULL } } },
-	{ MODKEY,			XK_minus,	spawn,	SHCMD("pamixer -d 1")},
-	{ ALT,				XK_minus,	spawn,	SHCMD("pamixer -d 2")},
-	{ MODKEY,			XK_equal,	spawn,	SHCMD("pamixer -i 1")},
-	{ ALT,				XK_equal,	spawn,	SHCMD("pamixer -i 2")},
-	{ ALT,				XK_m,		spawn,	SHCMD("pamixer -t")},
+	/* { ALT,             		      XK_equal,  quit,            {0} }, */ 
+	{ MODKEY,			                  XK_w,		    spawn,	       {.v = (const char*[]){ BROWSER, NULL } } },
+	{ MODKEY,			                  XK_m,		    spawn,	       {.v = (const char*[]){ MAIL, NULL } } },
+	/* { MODKEY,			              XK_d,		    spawn,	       {.v = (const char*[]){ VEDITOR, NULL } } }, */
+	{ MODKEY,			                  XK_t,		    spawn,	       {.v = (const char*[]){ TORRENT, NULL } } },
+	{ ALT,                       	  XK_s,  		  spawn,	       {.v = (const char*[]){ SCREENSHOT, NULL } } },
+	{ MODKEY,			                  XK_minus,	  spawn,	       SHCMD("pamixer -d 1")},
+	{ ALT,				                  XK_minus,	  spawn,	       SHCMD("pamixer -d 2")},
+	{ MODKEY,			                  XK_equal,	  spawn,	       SHCMD("pamixer -i 1")},
+	{ ALT,				                  XK_equal,	  spawn,	       SHCMD("pamixer -i 2")},
+	{ ALT,				                  XK_m,		    spawn,	       SHCMD("pamixer -t")},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
