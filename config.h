@@ -43,6 +43,9 @@ static const Rule rules[] = {
 	{ "qBittorrent",		NULL,	NULL,	1 << 8,       	0,		0,		0,		-1 },
 	{ "resolve",			NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
 	{ "discord",			NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
+	{ NULL,           NULL,	"LINE",	1 << 1,       	0,		0,		0,		-1 },
+	{ NULL,           "LINE",	NULL,	1 << 1,       	0,		0,		0,		-1 },
+	{ "LINE",           NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
 	{ "Gwe",			NULL,	NULL,	1 << 7,       	0,		0,		0,		-1 },
 	{ "Nvidia-settings",		NULL,	NULL,	1 << 6,       	0,		0,		0,		-1 },
 	{ "nvidia-settings",		NULL,	NULL,	1 << 6,       	0,		0,		0,		-1 },
@@ -68,10 +71,10 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define ALT Mod1Mask
-#define TAGKEYS(KEY,TAG) \
-	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+#define TAGKEYS(KEY,TAG) \ 
+  { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ ALT,			        KEY,      tag,            {.ui = 1 << TAG} }, \
+	{ ALT,			                    KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
