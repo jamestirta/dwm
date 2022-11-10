@@ -81,7 +81,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/usr/bin/zsh", "-c", cmd, NULL } }
 #define MAIL "gmail-desktop"
 #define VEDITOR "dav"
-#define BROWSER "brave"
+#define BROWSER "chromium"
 #define TORRENT "qbittorrent" 
 #define SCREENSHOT "sc"
 /* commands */
