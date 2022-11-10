@@ -84,6 +84,7 @@ static const Layout layouts[] = {
 #define BROWSER "chromium"
 #define TORRENT "qbittorrent" 
 #define SCREENSHOT "sc"
+#define DISCORD "discord"
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", selbgcolor, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
@@ -110,8 +111,8 @@ static const Key keys[] = {
 	/* { MODKEY,                    XK_equal,  setlayout,      {.v = &layouts[2]} }, */
 	/* { MODKEY,                    XK_space,  setlayout,      {0} }, */
 	/* { MODKEY|ShiftM,             XK_space,  togglefloating, {0} }, */
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ ALT,             		          XK_0,      tag,            {.ui = ~0 } },
+	/* { MODKEY,                       XK_0,      view,           {.ui = ~0 } }, */
+	/* { ALT,             		          XK_0,      tag,            {.ui = ~0 } }, */
 	/* { MODKEY,                    XK_comma,  focusmon,       {.i = -1 } }, */
 	/* { MODKEY,                    XK_period, focusmon,       {.i = +1 } }, */
 	/* { MODKEY|ShiftMask,          XK_comma,  tagmon,         {.i = -1 } }, */
@@ -122,6 +123,7 @@ static const Key keys[] = {
 	/* { MODKEY,			              XK_d,		    spawn,	       {.v = (const char*[]){ VEDITOR, NULL } } }, */
 	{ MODKEY,			                  XK_t,		    spawn,	       {.v = (const char*[]){ TORRENT, NULL } } },
 	{ ALT,                       	  XK_s,  		  spawn,	       {.v = (const char*[]){ SCREENSHOT, NULL } } },
+	{ MODKEY,                       XK_d,  		  spawn,	       {.v = (const char*[]){ DISCORD, NULL } } },
 	{ MODKEY,			                  XK_minus,	  spawn,	       SHCMD("pamixer -d 1")},
 	{ ALT,				                  XK_minus,	  spawn,	       SHCMD("pamixer -d 2")},
 	{ MODKEY,			                  XK_equal,	  spawn,	       SHCMD("pamixer -i 1")},
