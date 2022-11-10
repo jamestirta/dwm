@@ -129,7 +129,7 @@ static const Key keys[] = {
 	{ ALT,				                  XK_m,		    spawn,	       SHCMD("pamixer -t")},
 	{ MODKEY,				                XK_r,		    spawn,	       SHCMD("remaps")},
 	{ MODKEY,				                XK_r,		    spawn,	       SHCMD("remaps")},
-	{ MODKEY,				                XK_l,		    spawn,	       SHCMD("ll")},
+	{ ALT,				                  XK_l,		    spawn,	       SHCMD("ll")},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
