@@ -78,7 +78,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd) { .v = (const char*[]){ "/usr/bin/zsh", "-c", cmd, NULL } }
+#define SHCMD(cmd) { .v = (const char*[]){ "/usr/bin/dash", "-c", cmd, NULL } }
 #define MAIL "gmail-desktop"
 #define VEDITOR "dav"
 #define BROWSER "chromium"
@@ -127,6 +127,9 @@ static const Key keys[] = {
 	{ MODKEY,			                  XK_equal,	  spawn,	       SHCMD("pamixer -i 1")},
 	{ ALT,				                  XK_equal,	  spawn,	       SHCMD("pamixer -i 2")},
 	{ ALT,				                  XK_m,		    spawn,	       SHCMD("pamixer -t")},
+	{ MODKEY,				                XK_r,		    spawn,	       SHCMD("remaps")},
+	{ MODKEY,				                XK_r,		    spawn,	       SHCMD("remaps")},
+	{ MODKEY,				                XK_l,		    spawn,	       SHCMD("ll")},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
