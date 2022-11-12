@@ -6,8 +6,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating = 1;       /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = {"monospace:size=10","NotoColorEmoji:pixelsize=10:antialias=true:autohint=true"};
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = {"monospace:size=15","NotoColorEmoji:pixelsize=15:antialias=true:autohint=true"};
+static const char dmenufont[]       = "monospace:size=15";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -79,9 +79,9 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/usr/bin/dash", "-c", cmd, NULL } }
-#define MAIL "gmail-desktop"
+#define WEB "opensite"
 #define VEDITOR "dav"
-#define BROWSER "chromium"
+#define BROWSER "brave"
 #define TORRENT "qbittorrent" 
 #define SCREENSHOT "sc"
 #define DISCORD "discord"
@@ -119,7 +119,7 @@ static const Key keys[] = {
 	/* { MODKEY|ShiftMask           XK_period, tagmon,         {.i = +1 } }, */
 	/* { ALT,             		      XK_equal,  quit,            {0} }, */ 
 	{ MODKEY,			                  XK_w,		    spawn,	       {.v = (const char*[]){ BROWSER, NULL } } },
-	{ MODKEY,			                  XK_m,		    spawn,	       {.v = (const char*[]){ MAIL, NULL } } },
+	{ MODKEY,			                  XK_m,		    spawn,	       {.v = (const char*[]){ WEB, NULL } } },
 	/* { MODKEY,			              XK_d,		    spawn,	       {.v = (const char*[]){ VEDITOR, NULL } } }, */
 	{ MODKEY,			                  XK_t,		    spawn,	       {.v = (const char*[]){ TORRENT, NULL } } },
 	{ ALT,                       	  XK_s,  		  spawn,	       {.v = (const char*[]){ SCREENSHOT, NULL } } },
@@ -130,8 +130,7 @@ static const Key keys[] = {
 	{ ALT,				                  XK_equal,	  spawn,	       SHCMD("pamixer -i 2")},
 	{ ALT,				                  XK_m,		    spawn,	       SHCMD("pamixer -t")},
 	{ MODKEY,				                XK_r,		    spawn,	       SHCMD("remaps")},
-	{ MODKEY,				                XK_r,		    spawn,	       SHCMD("remaps")},
-	{ ALT,				                  XK_l,		    spawn,	       SHCMD("ll")},
+	{ ALT,				                  XK_l,		    spawn,	       SHCMD("oa")},
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
