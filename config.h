@@ -83,7 +83,7 @@ static const Layout layouts[] = {
 #define VEDITOR "dav"
 #define BROWSER "brave"
 #define TORRENT "qbittorrent" 
-#define SCREENSHOT "sc"
+#define SCREENSHOT "screenshotnow"
 #define DISCORD "discord"
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", selbgcolor, "-sf", col_gray4, NULL };
@@ -113,24 +113,27 @@ static const Key keys[] = {
 	/* { MODKEY|ShiftM,             XK_space,  togglefloating, {0} }, */
 	/* { MODKEY,                       XK_0,      view,           {.ui = ~0 } }, */
 	/* { ALT,             		          XK_0,      tag,            {.ui = ~0 } }, */
-	/* { MODKEY,                    XK_comma,  focusmon,       {.i = -1 } }, */
-	/* { MODKEY,                    XK_period, focusmon,       {.i = +1 } }, */
-	/* { MODKEY|ShiftMask,          XK_comma,  tagmon,         {.i = -1 } }, */
-	/* { MODKEY|ShiftMask           XK_period, tagmon,         {.i = +1 } }, */
+	{ MODKEY,                    XK_comma,  focusmon,       {.i = -1 } },
+	{ MODKEY,                    XK_period, focusmon,       {.i = +1 } },
+	{ ALT,                       XK_comma,  tagmon,         {.i = -1 } },
+	{ ALT,                       XK_period, tagmon,         {.i = +1 } },
 	/* { ALT,             		      XK_equal,  quit,            {0} }, */ 
 	{ MODKEY,			                  XK_w,		    spawn,	       {.v = (const char*[]){ BROWSER, NULL } } },
 	{ MODKEY,			                  XK_m,		    spawn,	       {.v = (const char*[]){ WEB, NULL } } },
 	/* { MODKEY,			              XK_d,		    spawn,	       {.v = (const char*[]){ VEDITOR, NULL } } }, */
 	{ MODKEY,			                  XK_t,		    spawn,	       {.v = (const char*[]){ TORRENT, NULL } } },
-	{ ALT,                       	  XK_s,  		  spawn,	       {.v = (const char*[]){ SCREENSHOT, NULL } } },
+	/* { ALT,                       	  XK_s,  		  spawn,	       {.v = (const char*[]){ SCREENSHOT, NULL } } }, */
 	{ MODKEY,                       XK_d,  		  spawn,	       {.v = (const char*[]){ DISCORD, NULL } } },
 	{ MODKEY,			                  XK_minus,	  spawn,	       SHCMD("pamixer -d 1")},
 	{ ALT,				                  XK_minus,	  spawn,	       SHCMD("pamixer -d 2")},
 	{ MODKEY,			                  XK_equal,	  spawn,	       SHCMD("pamixer -i 1")},
 	{ ALT,				                  XK_equal,	  spawn,	       SHCMD("pamixer -i 2")},
 	{ ALT,				                  XK_m,		    spawn,	       SHCMD("pamixer -t")},
+	{ ALT,				                  XK_j,		    spawn,	       SHCMD("/home/james/.local/bin/alias/schedule")},
 	{ MODKEY,				                XK_r,		    spawn,	       SHCMD("remaps")},
-	{ ALT,				                  XK_l,		    spawn,	       SHCMD("oa")},
+	{ ALT,				                  XK_s,		    spawn,	       SHCMD(SCREENSHOT)},
+	/* { ALT,				                  XK_l,		    spawn,	       SHCMD("oa")}, */
+	{ ALT,                          XK_l,  		  spawn,	       {.v = (const char*[]){ "oa", NULL } } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
