@@ -79,7 +79,7 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/usr/bin/dash", "-c", cmd, NULL } }
-#define WEB "opensite"
+#define WEB "dmenusite"
 #define VEDITOR "dav"
 #define BROWSER "brave"
 #define TORRENT "qbittorrent" 
@@ -119,7 +119,8 @@ static const Key keys[] = {
 	{ ALT,                       XK_period, tagmon,         {.i = +1 } },
 	/* { ALT,             		      XK_equal,  quit,            {0} }, */ 
 	{ MODKEY,			                  XK_w,		    spawn,	       {.v = (const char*[]){ BROWSER, NULL } } },
-	{ MODKEY,			                  XK_m,		    spawn,	       {.v = (const char*[]){ WEB, NULL } } },
+	/* { MODKEY,			                  XK_m,		    spawn,	       {.v = (const char*[]){ WEB, NULL } } }, */
+	{ MODKEY,			                  XK_m,		    spawn,	       SHCMD(WEB)},
 	/* { MODKEY,			              XK_d,		    spawn,	       {.v = (const char*[]){ VEDITOR, NULL } } }, */
 	{ MODKEY,			                  XK_t,		    spawn,	       {.v = (const char*[]){ TORRENT, NULL } } },
 	/* { ALT,                       	  XK_s,  		  spawn,	       {.v = (const char*[]){ SCREENSHOT, NULL } } }, */
