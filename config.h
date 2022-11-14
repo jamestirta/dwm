@@ -6,8 +6,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating = 1;       /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = {"monospace:size=15","NotoColorEmoji:pixelsize=15:antialias=true:autohint=true"};
-static const char dmenufont[]       = "monospace:size=15";
+static const char *fonts[]          = {"monospace:size=12","NotoColorEmoji:pixelsize=12:antialias=true:autohint=true"};
+static const char dmenufont[]       = "monospace:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -43,6 +43,9 @@ static const Rule rules[] = {
 	{ "qBittorrent",		NULL,	NULL,	1 << 8,       	0,		0,		0,		-1 },
 	{ "resolve",			NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
 	{ "discord",			NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
+	{ "Audacity",			NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
+	{ "audacity",			NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
+	{ "kdenlive",			NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
 	{ NULL,           NULL,	"LINE",	1 << 1,       	0,		0,		0,		-1 },
 	{ NULL,           "LINE",	NULL,	1 << 1,       	0,		0,		0,		-1 },
 	{ "LINE",           NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
@@ -52,7 +55,7 @@ static const Rule rules[] = {
 	{ "Microsoft Teams - Preview",	NULL,	NULL,	1 << 7,       	0,		0,		0,		-1 },
 	{ "jamesdsp",			NULL,	NULL,	1 << 7,       	0,		0,		0,		-1 },
 	{ "teams-for-linux",		NULL,	NULL,	1 << 7,       	0,		0,		0,		-1 },
-	{ "obs",			NULL,	NULL,	1 << 1,       	0,		0,		0,		-1 },
+	{ "obs",			NULL,	NULL,	1 << 8,       	0,		0,		0,		-1 },
 };
 
 /* layout(s) */
@@ -125,14 +128,18 @@ static const Key keys[] = {
 	{ MODKEY,			                  XK_t,		    spawn,	       {.v = (const char*[]){ TORRENT, NULL } } },
 	/* { ALT,                       	  XK_s,  		  spawn,	       {.v = (const char*[]){ SCREENSHOT, NULL } } }, */
 	{ MODKEY,                       XK_d,  		  spawn,	       {.v = (const char*[]){ DISCORD, NULL } } },
+	{ ALT,                          XK_p,  		  spawn,	       {.v = (const char*[]){ "st -e paru -Syu --skipreview --needed", NULL } } },
+	{ ALT,                          XK_p,  		  spawn,	       SHCMD("st -e paru -Syu --skipreview --needed")},
 	{ MODKEY,			                  XK_minus,	  spawn,	       SHCMD("pamixer -d 1")},
 	{ ALT,				                  XK_minus,	  spawn,	       SHCMD("pamixer -d 2")},
 	{ MODKEY,			                  XK_equal,	  spawn,	       SHCMD("pamixer -i 1")},
-	{ ALT,				                  XK_equal,	  spawn,	       SHCMD("pamixer -i 2")},
+	{ MODKEY,				                XK_s,	      spawn,	       SHCMD("~/.local/bin/speaker-or-headphone")},
 	{ ALT,				                  XK_m,		    spawn,	       SHCMD("pamixer -t")},
 	{ ALT,				                  XK_j,		    spawn,	       SHCMD("/home/james/.local/bin/alias/schedule")},
+	{ MODKEY,				                XK_o,		    spawn,	       SHCMD("[ -z $( pgrep 'obs' ) ] && ~/.local/bin/setmicvol ; ~/.local/bin/alias/obs-kill-picom || picom -b")},
+	{ MODKEY,				                XK_a,		    spawn,	       SHCMD("[ -z $( pgrep 'audacity' ) ] && ~/.local/bin/setmicvol ; ~/.local/bin/alias/auda")},
 	{ MODKEY,				                XK_r,		    spawn,	       SHCMD("remaps")},
-	{ ALT,				                  XK_s,		    spawn,	       SHCMD(SCREENSHOT)},
+	{ MODKEY,				                XK_s,		    spawn,	       SHCMD(SCREENSHOT)},
 	/* { ALT,				                  XK_l,		    spawn,	       SHCMD("oa")}, */
 	{ ALT,                          XK_l,  		  spawn,	       {.v = (const char*[]){ "oa", NULL } } },
 	TAGKEYS(                        XK_1,                      0)
