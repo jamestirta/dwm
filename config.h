@@ -142,7 +142,6 @@ static const Key keys[] = {
   { MODKEY,                       XK_s,      spawn,          SHCMD(SCREENSHOT)},
   /* { ALT,                  XK_l,    spawn,       SHCMD("oa")}, */
   { ALT,                          XK_l,      spawn,         {.v = (const char*[]){ "oa", NULL } } },
-
 	/* { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } }, */
 	/* { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } }, */
 	/* { MODKEY,                       XK_b,      togglebar,      {0} }, */
@@ -196,4 +195,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
