@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
+static const unsigned int borderpx  = 3;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating = 1;       /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -17,11 +17,15 @@ static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
+/* static char selfgcolor[]            = "#8d755a"; */
 /* static char selbordercolor[]        = "#00ffff"; // cyan */
-static char selbordercolor[]        = "#ffffff"; // white
+/* static char selbordercolor[]        = "#ffffff"; // white */
+static char selbordercolor[]        = "#dbae67"; // light brown
 /* static char selbordercolor[]        = "#5cf9cf"; // white */
 /* static char selbordercolor[]        = "#iff0000"; // red */
-static char selbgcolor[]            = "#004763";
+/* static char selbgcolor[]            = "#004763"; */
+/* static char selbgcolor[]            = "#7a623c"; */
+static char selbgcolor[]            = "#7d603e";
 static const char *colors[][3]      = {
       /*               fg         bg         border   */
       [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -73,7 +77,7 @@ static const Layout layouts[] = {
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+	{ ALT,                          KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
@@ -122,8 +126,9 @@ static const Key keys[] = {
   { ALT,                          XK_period, tagmon,         {.i = +1 } },
   /* { ALT,                       XK_equal,  quit,            {0} }, */ 
   { MODKEY,                       XK_w,      spawn,          {.v = (const char*[]){ BROWSER, NULL } } },
-  /* { MODKEY,                  XK_m,    spawn,       {.v = (const char*[]){ WEB, NULL } } }, */
-  { MODKEY,                       XK_m,      spawn,          SHCMD(WEB)},
+  { MODKEY,                       XK_m,    spawn,           {.v = (const char*[]){ "dmenusite" , NULL } } },
+  { ALT,                          XK_l,    spawn,           {.v = (const char*[]){ "dmenucopy" , NULL } } },
+  /* { MODKEY,                       XK_m,      spawn,          SHCMD(WEB)}, */
   /* { MODKEY,              XK_d,    spawn,       {.v = (const char*[]){ VEDITOR, NULL } } }, */
   { MODKEY,                       XK_t,      spawn,          {.v = (const char*[]){ TORRENT, NULL } } },
   /* { ALT,                           XK_s,       spawn,       {.v = (const char*[]){ SCREENSHOT, NULL } } }, */
@@ -139,9 +144,9 @@ static const Key keys[] = {
   { MODKEY,                       XK_o,      spawn,          SHCMD("[ -z $( pgrep 'obs' ) ] && ~/.local/bin/setmicvol ; ~/.local/bin/alias/obs-kill-picom || picom -b")},
   { MODKEY,                       XK_a,      spawn,          SHCMD("[ -z $( pgrep 'audacity' ) ] && ~/.local/bin/setmicvol ; ~/.local/bin/alias/auda")},
   { MODKEY,                       XK_r,      spawn,          SHCMD("remaps")},
+  { MODKEY,                       XK_v,      spawn,          SHCMD("openvpn")},
   { MODKEY,                       XK_s,      spawn,          SHCMD(SCREENSHOT)},
   /* { ALT,                  XK_l,    spawn,       SHCMD("oa")}, */
-  { ALT,                          XK_l,      spawn,         {.v = (const char*[]){ "oa", NULL } } },
 	/* { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } }, */
 	/* { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } }, */
 	/* { MODKEY,                       XK_b,      togglebar,      {0} }, */
